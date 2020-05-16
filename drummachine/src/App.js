@@ -6,7 +6,7 @@ import './App.css';
 class App extends React.Component {
 
   render() {
-    const keys = ['Q','W','E','A','S','D','Z','X','C'];
+   // const keys = ['Q','W','E','A','S','D','Z','X','C'];
     const sounds = [
       {
         key: 'Q',
@@ -69,11 +69,21 @@ const Drum = (props) => (
 //   </div>
 // )
 class Box extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.audio = React.createRef();
+  } 
+
+  playSound = () => {
+    this.audio.current.play();
+  }
   render() {
+    const { text, audio } = this.props;
     return (
-      <div className="box">
-        {this.props.text}
-        <audio />
+      <div className="box" onClick={this.playSound}>
+        {text}
+        <audio ref={this.audio} src={audio} className="clip" id={text}/>
       </div>
     )
   }
