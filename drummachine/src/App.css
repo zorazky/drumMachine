@@ -24,7 +24,12 @@ body {
   padding: 20px;
   width: 400px;
 }
-.box {
+.display h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.drum-pad {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +43,7 @@ body {
   cursor: pointer;
 }
 
-.box.active {
+.drum-pad.active {
   opacity: 0.8;
   transform: scale(0.95);
 }
